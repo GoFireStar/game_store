@@ -21,11 +21,14 @@ class _PopularGame extends GetView<DashboardController> {
           physics: BouncingScrollPhysics(),
           child: Row(
               children: controller.popularGame
-                  .map((e) => Hero(
-                        tag: controller.getHeroTag(e),
+                  .map((product) => Hero(
+                        tag: controller.getPopularGameTag(product),
                         child: CardImage(
-                          image: e.backgroundImage,
-                          onPressed: () => controller.goToDetail(e),
+                          image: product.backgroundImage,
+                          onPressed: () => controller.goToDetail(
+                            product,
+                            heroTag: controller.getPopularGameTag(product),
+                          ),
                         ),
                       ))
                   .toList()),

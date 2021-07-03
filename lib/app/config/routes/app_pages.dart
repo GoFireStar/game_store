@@ -24,7 +24,7 @@ class AppPages {
       name: _Paths.productDetail,
       page: () => ProductDetailScreen(),
       binding: ProductDetailBinding(),
-      transition: Transition.cupertino,
+      transition: Transition.downToUp,
     ),
   ];
 }

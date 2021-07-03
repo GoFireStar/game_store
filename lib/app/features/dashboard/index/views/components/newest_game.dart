@@ -17,16 +17,22 @@ class _NewestGame extends GetView<DashboardController> {
         ),
         SizedBox(height: 10),
         ...controller.popularGame
-            .map((e) => Padding(
+            .map((product) => Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: CardProduct(
-                    data: CardProductData(
-                        image: e.iconImage,
-                        name: e.name,
-                        category: e.category,
-                        rating: e.rating),
-                    onPressed: () => controller.goToDetail(e),
+                  child: Hero(
+                    tag: controller.getNewestGameTag(product),
+                    child: CardProduct(
+                      data: CardProductData(
+                          image: product.iconImage,
+                          name: product.name,
+                          category: product.category,
+                          rating: product.rating),
+                      onPressed: () => controller.goToDetail(
+                        product,
+                        heroTag: controller.getNewestGameTag(product),
+                      ),
+                    ),
                   ),
                 ))
             .toList()
