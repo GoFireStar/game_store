@@ -21,6 +21,7 @@ part '../../controllers/dashboard_controller.dart';
 // components
 part '../components/background_content.dart';
 part '../components/background_image.dart';
+part '../components/bottom_navbar.dart';
 part '../components/category_buttons.dart';
 part '../components/header.dart';
 part '../components/newest_game.dart';
@@ -33,7 +34,6 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
@@ -65,6 +65,7 @@ class DashboardScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: _BottomNavbar(),
     );
   }
 }

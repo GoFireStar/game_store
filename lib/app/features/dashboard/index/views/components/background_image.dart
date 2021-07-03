@@ -5,8 +5,9 @@ class _BackgroundImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: Get.width,
+      color: Theme.of(context).primaryColor,
       child: Stack(
         alignment: Alignment.center,
         children: [
