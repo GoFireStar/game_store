@@ -28,49 +28,60 @@ class CustomIconButton extends StatelessWidget {
       width: 70,
       child: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  (primary ?? _defaultPrimary).withOpacity(.8),
-                  primary ?? _defaultPrimary
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-              borderRadius: BorderRadius.circular(_borderRadius),
-            ),
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(_borderRadius),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Icon(
-                    icon,
-                    size: 28,
-                    color: onPrimary ?? _defaultOnPrimary,
-                  ),
-                ),
-                onTap: onPressed,
-                highlightColor:
-                    (onPrimary ?? _defaultOnPrimary).withOpacity(.1),
-                overlayColor: MaterialStateProperty.all(
-                  (onPrimary ?? _defaultOnPrimary).withOpacity(.3),
-                ),
-              ),
-            ),
+          _background(
+            color: primary ?? _defaultPrimary,
+            child: _iconButton(color: onPrimary ?? _defaultOnPrimary),
           ),
           SizedBox(height: 8),
-          Text(
-            GetUtils.capitalizeFirst(label)!,
-            style: TextStyle(fontWeight: FontWeight.w500),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
+          _labelText(),
         ],
       ),
+    );
+  }
+
+  Widget _background({required Widget child, required Color color}) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [color.withOpacity(.8), color],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+        borderRadius: BorderRadius.circular(_borderRadius),
+      ),
+      child: child,
+    );
+  }
+
+  Widget _iconButton({required Color color}) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(_borderRadius),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Icon(
+            icon,
+            size: 28,
+            color: color,
+          ),
+        ),
+        onTap: onPressed,
+        highlightColor: color.withOpacity(.1),
+        overlayColor: MaterialStateProperty.all(
+          color.withOpacity(.3),
+        ),
+      ),
+    );
+  }
+
+  Widget _labelText() {
+    return Text(
+      GetUtils.capitalizeFirst(label)!,
+      style: TextStyle(fontWeight: FontWeight.w500),
+      textAlign: TextAlign.center,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }
