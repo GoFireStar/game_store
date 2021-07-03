@@ -7,21 +7,7 @@ class _BottomNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, -5),
-              color: Colors.black12,
-              blurRadius: 10,
-            )
-          ],
-        ),
+      () => _customBackground(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 5),
           child: BottomNavigationBar(
@@ -42,6 +28,26 @@ class _BottomNavbar extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _customBackground({required Widget child}) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, -5),
+            color: Colors.black12,
+            blurRadius: 10,
+          )
+        ],
+      ),
+      child: child,
     );
   }
 }

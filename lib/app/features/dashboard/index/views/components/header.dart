@@ -13,26 +13,38 @@ class _Header extends GetView<DashboardController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Welcome, " + GetUtils.capitalize(controller.user.name)!,
-                style: Theme.of(context).textTheme.headline5?.copyWith(
-                      color: Colors.white,
-                    ),
-              ),
-              CircleAvatar(
-                backgroundImage: controller.user.image,
-              )
+              _title(),
+              _imageProfile(),
             ],
           ),
-          Text(
-            "What would you like to play ? ",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.grey[200],
-            ),
-          ),
+          _subtitle(),
         ],
       ),
+    );
+  }
+
+  Widget _title() {
+    return Text(
+      "Welcome, " + GetUtils.capitalize(controller.user.name)!,
+      style: Theme.of(Get.context!).textTheme.headline5?.copyWith(
+            color: Colors.white,
+          ),
+    );
+  }
+
+  Widget _subtitle() {
+    return Text(
+      "What would you like to play ? ",
+      style: TextStyle(
+        fontSize: 15,
+        color: Colors.grey[200],
+      ),
+    );
+  }
+
+  Widget _imageProfile() {
+    return CircleAvatar(
+      backgroundImage: controller.user.image,
     );
   }
 }

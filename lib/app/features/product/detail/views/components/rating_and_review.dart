@@ -9,29 +9,17 @@ class _RatingsAndReview extends GetView<ProductDetailController> {
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Column(
         children: [
-          _headerText(),
+          _title(),
           Row(
             children: [
-              Text(
-                controller.product.rating.toString(),
-                style: TextStyle(
-                  fontSize: 55,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              _ratingText(),
               SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   RatingIcon(rating: controller.product.rating, size: 20),
                   SizedBox(height: 10),
-                  Text(
-                    "${controller.product.totalReview} review",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.grey,
-                    ),
-                  )
+                  _reviewText(),
                 ],
               ),
             ],
@@ -41,7 +29,17 @@ class _RatingsAndReview extends GetView<ProductDetailController> {
     );
   }
 
-  Widget _headerText() {
+  Widget _ratingText() {
+    return Text(
+      controller.product.rating.toString(),
+      style: TextStyle(
+        fontSize: 55,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget _title() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -57,6 +55,16 @@ class _RatingsAndReview extends GetView<ProductDetailController> {
             onPressed: () {},
             child: Text("View"))
       ],
+    );
+  }
+
+  Widget _reviewText() {
+    return Text(
+      "${controller.product.totalReview} review",
+      style: TextStyle(
+        fontWeight: FontWeight.w500,
+        color: Colors.grey,
+      ),
     );
   }
 }
