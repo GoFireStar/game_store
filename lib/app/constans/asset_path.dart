@@ -26,3 +26,9 @@ class ImageVector {
 
   static const backgroundLiquid = "$_path/background_liquid.svg";
 }
+
+class ImageAnimation {
+  static const _path = "assets/images/animation";
+
+  static const confetti = "$_path/confetti.json";
+}

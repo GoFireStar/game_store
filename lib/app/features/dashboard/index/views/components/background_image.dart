@@ -7,6 +7,7 @@ class _BackgroundImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width,
+      height: 250,
       color: Theme.of(context).primaryColor,
       child: Stack(
         alignment: Alignment.center,

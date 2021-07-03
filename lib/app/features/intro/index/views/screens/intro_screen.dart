@@ -6,6 +6,7 @@ import 'package:game_store/app/config/routes/app_pages.dart';
 import 'package:game_store/app/constans/app_constants.dart';
 import 'package:get/get.dart';
 import 'package:game_store/app/utils/ui/ui_utils.dart';
+import 'package:lottie/lottie.dart';
 
 // bindings
 part '../../bindings/intro_binding.dart';
@@ -25,19 +26,29 @@ class IntroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Spacer(flex: 5),
-            _BackgroundImage(),
-            _HeaderText(),
-            Spacer(flex: 3),
-            _GetStartedButton(),
-            Spacer(flex: 5),
-          ],
-        ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Spacer(flex: 5),
+                _BackgroundImage(),
+                _HeaderText(),
+                Spacer(flex: 3),
+                _GetStartedButton(),
+                Spacer(flex: 5),
+              ],
+            ),
+          ),
+          IgnorePointer(
+            child: LottieBuilder.asset(
+              ImageAnimation.confetti,
+              repeat: false,
+            ),
+          )
+        ],
       ),
     );
   }
