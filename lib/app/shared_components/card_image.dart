@@ -7,6 +7,7 @@ class CardImage extends StatelessWidget {
   final ImageProvider image;
   final Function()? onPressed;
   final _borderRadius = 10.0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,27 +17,35 @@ class CardImage extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Card(
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(_borderRadius),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(_borderRadius),
-              child: Image(
-                image: image,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Material(
-            color: Colors.transparent,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(_borderRadius),
-              onTap: onPressed,
-            ),
-          )
+          _image(),
+          _customInkwell(),
         ],
+      ),
+    );
+  }
+
+  Widget _image() {
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(_borderRadius),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(_borderRadius),
+        child: Image(
+          image: image,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Widget _customInkwell() {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(_borderRadius),
+        onTap: onPressed,
       ),
     );
   }
