@@ -33,7 +33,7 @@ class CardImage extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               borderRadius: BorderRadius.circular(_borderRadius),
-              onTap: () {},
+              onTap: onPressed,
             ),
           )
         ],

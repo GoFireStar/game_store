@@ -16,7 +16,7 @@ class _BackButton extends StatelessWidget {
             padding: const EdgeInsets.all(5),
             child: Icon(Icons.arrow_back_ios_rounded),
           ),
-          onTap: () {},
+          onTap: () => Get.back(),
         ),
       ),
     );

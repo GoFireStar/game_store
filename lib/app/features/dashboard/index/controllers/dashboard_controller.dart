@@ -16,4 +16,13 @@ class DashboardController extends GetxController {
     popularGame = _productService.getPopularGame();
     newestGame = _productService.getNewestGame();
   }
+
+  void goToDetail(Product product) {
+    Get.toNamed(Routes.productDetail,
+        arguments: product, parameters: {'hero_tag': getHeroTag(product)});
+  }
+
+  String getHeroTag(Product product) {
+    return "background-image-${product.id}";
+  }
 }

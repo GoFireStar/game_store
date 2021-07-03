@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:game_store/app/config/routes/app_pages.dart';
 import 'package:game_store/app/constans/app_constants.dart';
 import 'package:game_store/app/shared_components/card_image.dart';
 import 'package:game_store/app/shared_components/card_product.dart';

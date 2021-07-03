@@ -26,7 +26,7 @@ class _NewestGame extends GetView<DashboardController> {
                         name: e.name,
                         category: e.category,
                         rating: e.rating),
-                    onPressed: () {},
+                    onPressed: () => controller.goToDetail(e),
                   ),
                 ))
             .toList()

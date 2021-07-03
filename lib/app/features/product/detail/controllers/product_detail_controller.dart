@@ -1,12 +1,14 @@
 part of product_detail;
 
 class ProductDetailController extends GetxController {
-  final _productService = ProductService();
   late final Product product;
+  String? heroTag;
 
   @override
   void onInit() {
     super.onInit();
-    product = _productService.getPopularGame()[1];
+    heroTag = Get.parameters['hero_tag'];
+
+    product = Get.arguments as Product;
   }
 }

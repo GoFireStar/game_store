@@ -6,10 +6,13 @@ class _BackgroundImage extends GetView<ProductDetailController> {
 
   @override
   Widget build(BuildContext context) {
-    return Image(
-      image: controller.product.backgroundImage,
-      height: height,
-      fit: BoxFit.cover,
+    return Hero(
+      tag: controller.heroTag ?? "",
+      child: Image(
+        image: controller.product.backgroundImage,
+        height: height,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }
