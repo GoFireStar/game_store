@@ -8,32 +8,45 @@ class _PopularGame extends GetView<DashboardController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-          child: Text(
-            "Popular Game",
-            style: Theme.of(context).textTheme.headline6,
-          ),
-        ),
+        _title(),
         SizedBox(height: 10),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          physics: BouncingScrollPhysics(),
-          child: Row(
-              children: controller.popularGame
-                  .map((product) => Hero(
-                        tag: controller.getPopularGameTag(product),
-                        child: CardImage(
-                          image: product.backgroundImage,
-                          onPressed: () => controller.goToDetail(
-                            product,
-                            heroTag: controller.getPopularGameTag(product),
-                          ),
-                        ),
-                      ))
-                  .toList()),
-        )
+        _content(),
       ],
+    );
+  }
+
+  Widget _title() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      child: Text(
+        "Popular Game",
+        style: Theme.of(Get.context!).textTheme.headline6,
+      ),
+    );
+  }
+
+  Widget _content() {
+    return SizedBox(
+      height: CardImage.size.height,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        physics: BouncingScrollPhysics(),
+        itemCount: controller.popularGame.length,
+        itemBuilder: (context, index) {
+          var product = controller.popularGame[index];
+
+          return Hero(
+            tag: controller.getPopularGameTag(product),
+            child: CardImage(
+              image: product.backgroundImage,
+              onPressed: () => controller.goToDetail(
+                product,
+                heroTag: controller.getPopularGameTag(product),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

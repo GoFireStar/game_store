@@ -8,12 +8,14 @@ class CardImage extends StatelessWidget {
   final Function()? onPressed;
   final _borderRadius = 10.0;
 
+  static Size size = const Size(300, 180);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(10),
-      width: 300,
-      height: 180,
+      width: size.width,
+      height: size.height,
       child: Stack(
         fit: StackFit.expand,
         children: [

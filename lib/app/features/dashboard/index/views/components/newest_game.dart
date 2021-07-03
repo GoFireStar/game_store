@@ -8,35 +8,44 @@ class _NewestGame extends GetView<DashboardController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-          child: Text(
-            "Newest Game",
-            style: Theme.of(context).textTheme.headline6,
-          ),
-        ),
+        _title(),
         SizedBox(height: 10),
-        ...controller.popularGame
-            .map((product) => Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Hero(
-                    tag: controller.getNewestGameTag(product),
-                    child: CardProduct(
-                      data: CardProductData(
-                          image: product.iconImage,
-                          name: product.name,
-                          category: product.category,
-                          rating: product.rating),
-                      onPressed: () => controller.goToDetail(
-                        product,
-                        heroTag: controller.getNewestGameTag(product),
-                      ),
-                    ),
-                  ),
-                ))
-            .toList()
+        ..._content(),
       ],
     );
+  }
+
+  Widget _title() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      child: Text(
+        "Newest Game",
+        style: Theme.of(Get.context!).textTheme.headline6,
+      ),
+    );
+  }
+
+  List<Widget> _content() {
+    return controller.popularGame
+        .map(
+          (product) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Hero(
+              tag: controller.getNewestGameTag(product),
+              child: CardProduct(
+                data: CardProductData(
+                    image: product.iconImage,
+                    name: product.name,
+                    category: product.category,
+                    rating: product.rating),
+                onPressed: () => controller.goToDetail(
+                  product,
+                  heroTag: controller.getNewestGameTag(product),
+                ),
+              ),
+            ),
+          ),
+        )
+        .toList();
   }
 }

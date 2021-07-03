@@ -9,12 +9,13 @@ class _SearchTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: TextField(
         decoration: InputDecoration(
-            prefixIcon: Icon(
-              Icons.search,
-              size: 25,
-              color: Theme.of(context).primaryColor,
-            ),
-            hintText: "Search game"),
+          prefixIcon: Icon(
+            Icons.search,
+            size: 25,
+            color: Theme.of(context).primaryColor,
+          ),
+          hintText: "Search game",
+        ),
       ),
     );
   }
