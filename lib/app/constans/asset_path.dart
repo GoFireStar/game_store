@@ -17,6 +17,7 @@ class ImageRaster {
   static const raymandLegend4 = "$_path/rayman legends/rl-4.jpg";
   static const raymandLegend5 = "$_path/rayman legends/rl-5.jpg";
 
+  static const logoGiaDeveloper = "$_path/logo-gia-developer.png";
   static const phone3d = "$_path/phone-3d.png";
 }
 

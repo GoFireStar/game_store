@@ -1,6 +1,6 @@
 part of dashboard;
 
-class _Header extends StatelessWidget {
+class _Header extends GetView<DashboardController> {
   const _Header({Key? key}) : super(key: key);
 
   @override
@@ -14,13 +14,13 @@ class _Header extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Welcome,",
+                "Welcome, " + GetUtils.capitalize(controller.user.name)!,
                 style: Theme.of(context).textTheme.headline5?.copyWith(
                       color: Colors.white,
                     ),
               ),
               CircleAvatar(
-                backgroundImage: AssetImage(ImageRaster.oriBlindForest1),
+                backgroundImage: controller.user.image,
               )
             ],
           ),

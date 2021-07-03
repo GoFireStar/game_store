@@ -9,19 +9,19 @@ class ProductService {
 
   ProductService._internal();
 
-  List<ProductResult> getPopularGame() {
+  List<Product> getPopularGame() {
     return [
       _oriAndTheBlindForest,
       _raymanLegends,
     ];
   }
 
-  List<ProductResult> getNewestGame() {
+  List<Product> getNewestGame() {
     return [_oriAndTheBlindForest];
   }
 }
 
-class ProductResult {
+class Product {
   final int id;
   final ImageProvider iconImage;
   final ImageProvider backgroundImage;
@@ -33,7 +33,7 @@ class ProductResult {
   final int totalDownload;
   final int totalReview;
 
-  ProductResult({
+  Product({
     required this.id,
     required this.iconImage,
     required this.backgroundImage,
@@ -48,7 +48,7 @@ class ProductResult {
 }
 
 //sample data
-final _oriAndTheBlindForest = ProductResult(
+final _oriAndTheBlindForest = Product(
     id: 0,
     iconImage: AssetImage(ImageRaster.oriBlindForestIcon),
     backgroundImage: AssetImage(ImageRaster.oriBlindForest1),
@@ -66,7 +66,7 @@ final _oriAndTheBlindForest = ProductResult(
     totalDownload: 300,
     totalReview: 15);
 
-final _raymanLegends = ProductResult(
+final _raymanLegends = Product(
     id: 1,
     iconImage: AssetImage(ImageRaster.raymandLegendIcon),
     backgroundImage: AssetImage(ImageRaster.raymandLegend1),
