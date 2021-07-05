@@ -1,3 +1,4 @@
+![thumbnail-game-store-app](https://user-images.githubusercontent.com/84274595/124438290-3515e580-dda2-11eb-9b27-e4d3da26f3c8.png)
 # game_store
 
 A new Flutter project.
